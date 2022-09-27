@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%load static %}
+
+{%block content%}
+{%include 'header.html'%}
+<style>
+    .mybox{
+        background: #112;
+    }
+</style>
+<div class="container">
+<h4 class="title"> <a href="/">Home </a>/ <a href="/products"> Shop </a>/ {{product.name}}</h4>
+<hr>
+
+<div class="card-container">
+    <div class="col-lg-4 box">
+        <div class="img-container">
+        <img class="thumbnail" src="{{product.image.url}}">
+        </div>
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+
+            <a href="/add-to-cart/{{product.id}}" style="border: 1px solid greenyellow" class="btn btn-outline-light py-2 px-4">Add to Cart</a>
+            <h4 class="float-right"><strong>{{product.price}} Frw</strong></h4>
+
+        </div>
+    </div>
+    <br>
+    <div class="col-lg-8 box alert mybox ">
+        <br>
+        <br>
+        <p class="card-text h4" style="color: white;">{{product.description}}</p>
+        <p class="card-text h4" style="color: white;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto distinctio fuga et veritatis. Vel maxime vitae non exercitationem et, magni ad facere. Sapiente fuga aperiam omnis debitis rerum esse voluptatem asperiores, officia necessitatibus nesciunt architecto ipsam eius nemo dolor porro!</p>
+        <br>
+        <p style="color: white;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores numquam ipsa deleniti dolorem illo, quasi molestias omnis eveniet maxime laborum est adipisci nam velit repellendus ea autem perspiciatis laboriosam iure totam voluptates fuga quia veritatis voluptatum incidunt! At officiis ex impedit vel accusantium? Impedit nihil dicta exercitationem ipsum quibusdam eius.</p>
+        <br>
+        <br>
+        <a href="/checkout" style="border: 1px solid greenyellow; background-color: #113;" class="btn btn-outline-light py-2 px-4 float-right">Proceed to checkout</a>
+    </div>
+</div>
+</div>
+
+{%endblock%}

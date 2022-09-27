@@ -1,0 +1,139 @@
+{%extends 'base.html'%}
+{%load static %}
+
+
+{%block content%}
+{% include 'header.html'%}
+
+<div class="intro-section custom-owl-carousel" id="home-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mr-auto">
+
+                <div class="owl-carousel slide-one-item-alt-text">
+                    <div class="slide-text">
+                        <h1>We Do Awesome Shoes</h1>
+                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed
+                            quis rerum amet natus quas necessitatibus.</p>
+                        <p><a href="/products"   style="background-color: #113; color: white; border: 1px solid brown;" class="btn btn-outline-light py-3 px-5">Start Shopping</a></p>
+                    </div>
+                    <div class="slide-text">
+                        <h1>Welcome to lodeShoes</h1>
+                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed
+                            quis rerum amet natus quas necessitatibus.</p>
+                        <p><a href="/products"   style="background-color: #113; color: white; border: 1px solid brown;" class="btn btn-outline-light py-3 px-5">Start Shopping</a></p>
+                    </div>
+                    <div class="slide-text">
+                        <h1>100% hand-made</h1>
+                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed
+                            quis rerum amet natus quas necessitatibus.</p>
+                        <p><a href="/products"   style="background-color: #113; color: white; border: 1px solid brown;" class="btn btn-outline-light py-3 px-5">Start Shopping</a></p>
+                    </div>
+                    <div class="slide-text">
+                        <h1>We make your feet smile</h1>
+                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed
+                            quis rerum amet natus quas necessitatibus.</p>
+                        <p><a href="/products"   style="background-color: #113; color: white; border: 1px solid brown;" class="btn btn-outline-light py-3 px-5">Start Shopping</a></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 ml-auto">
+
+                <div class="owl-carousel slide-one-item-alt">
+                    <img src={%static 'images/img1.jpeg'%} alt="Image" class="img-fluid">
+                    <img src={%static 'images/logo.png'%} alt="Image" class="img-fluid">
+                    <img src={%static 'images/img2.jpeg'%} alt="Image" class="img-fluid">
+                    <img src={%static 'images/img6.jpeg'%} alt="Image" class="img-fluid">
+                </div>
+
+                <div class="owl-custom-direction">
+                    <a href="#" class="custom-prev"><i class="fas fa-chevron-left"></i></a>
+                    <a href="#" class="custom-next"><i class="fas fa-chevron-right"></i></span></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<div class="container" >
+<h2 class="alert">Featured products:</h2>
+<hr>
+<div class="main-slide-container ">
+    <div class="slide-container">
+        <div class="image-slider">
+            <marquee behavior="alternate" >
+            {%for product in products%}
+           <a href="/products">
+            <div class="slides-div">
+                <img src="{{product.image.url}}" alt="" class="img">
+           </a>
+            {% endfor %}
+
+            </marquee>
+
+            </div>
+        </div>
+    </div>
+    <h2 class="alert">What we do:</h2>
+    <hr>
+    <div class="row">
+    <div class="col-lg-4">
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exercitationem maxime atque aliquam beatae error dolores obcaecati facere maiores pariatur necessitatibus asperiores a repellat aspernatur sequi ut, provident iste minus?</p>
+    </div>
+    <div class="col-lg-6">
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi distinctio nihil, totam sit ducimus repellendus laborum! Eius natus ipsa corporis esse voluptatem, qui velit laborum sunt a perspiciatis necessitatibus, nihil iusto dicta distinctio obcaecati saepe, eveniet cum. Nostrum expedita tempore ipsa molestiae sapiente! Quasi facilis, commodi porro dolorum hic suscipit cum recusandae! Ipsum, possimus sapiente amet veritatis ipsam rem doloremque saepe quam atque, reprehenderit aut quaerat repellat in quae eveniet?</p>
+    </div>
+    </div>
+    <h3 class="text-center"> <a href="/about" style="color:#112; text-decoration: underline;"> Learn More about us!</a></h3>
+    <br>
+    <h2 class="alert" style="margin-top: 50px;">Leave a message for us:</h2>
+    <hr>
+    {% include 'messages.html'%}
+    <form class="form-horizontal ml-5 row" method="post">
+        <br>
+        {% csrf_token %}
+        <div class="form-group col-sm-6">
+            <div class="">
+                <input type="text" class="form-control" name="name" 
+                    placeholder="Enter your name..." required>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <div class="col-sm-11">
+                <input type="email" class="form-control" name="email" placeholder="Enter your e-mail..." required>
+            </div>
+        </div>
+        <div class="form-group col-sm-11">
+            <div class="">
+                    <textarea class="form-control" name="message" id="" cols="30" rows="3" placeholder="Your message here..." required></textarea>
+            </div>
+        </div>
+        <div class="form-group col-sm-10 ">
+            <div class="  ">
+                <button style="color: white;font-weight: 700; border: none;padding: 10px 20px;" type="submit" class="btn btn-outline-light py-3 px-5">Send Message</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <h2 class="alert" style="margin-top: 20px;">Find us here:</h2>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>lodeShoes</h3>
+            <h4>Find us at Kicukiro Center</h4>
+        </div>
+    <iframe class="col-sm-6"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15949.811842772095!2d30.086944614624088!3d-1.9730183318991676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca62d5ccf73a5%3A0x85be08f36aff91dd!2sKicukiro%2C%20Kigali!5e0!3m2!1sen!2srw!4v1662502505702!5m2!1sen!2srw"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{%endblock%}
+
+

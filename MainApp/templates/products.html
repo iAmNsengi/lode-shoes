@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%load static %}
+
+
+{%block content%}
+{%include 'header.html'%}
+<div class="container">
+<h4 class="title"> <a href="/" style="color: #112;">Home </a>/ Shop </a></h4>
+<hr>
+    {%include 'messages.html'%}
+
+{%for product in products%}
+<a href="products/{{product.id}}">
+<div class="card-container">
+    <div class="col-lg-4 box">
+        <div class="img-container">
+        <img class="thumbnail" src="{{product.image.url}}" >
+        </div>
+        </a>
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+            <a style="border: 1px solid greenyellow;" href="/add-to-cart/{{product.id}}" class="btn btn-outline-light py-2 px-4">Add to Cart</a>
+            <a style="border: 1px solid brown;" class="btn btn-outline-light py-2 px-4" href="products/{{product.id}}">View</a>
+            <h4 style="display:inline-block; margin-left: 20px;"><strong>{{product.price}} Frw</strong></h4>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
